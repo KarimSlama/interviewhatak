@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:interview/models/category_model.dart';
 import 'package:interview/models/contact_model.dart';
 import 'package:interview/models/field_model.dart';
+import 'package:interview/models/question_model.dart';
 import 'package:interview/models/user_model.dart';
 import 'package:interview/modules/category_screen/category_screen.dart';
 import 'package:interview/modules/favorite_screen/favorite_screen.dart';
@@ -266,6 +267,37 @@ class HomeCubit extends Cubit<HomeState> {
           categoryName: element.get('categoryName'),
         );
         emit(GetFieldDataSuccessState());
+      });
+    });
+  } //end getCategoriesItems()
+
+  QuestionModel? questionModel;
+  List<QuestionModel> questions = [];
+
+  void getQuestionsItems(
+      {required String categoryName, required String fieldName}) {
+    emit(GetQuestionsLoadingState());
+
+    FirebaseFirestore.instance
+        .collection('categories')
+        .doc(categoryName)
+        .collection('fields')
+        .doc(fieldName)
+        .collection('questions')
+        .snapshots()
+        .listen((event) {
+      print('the all value are ${event.docs.length}');
+      questions = [];
+      event.docs.forEach((element) {
+        questions.add(QuestionModel.fromJson(element.data()));
+        questionModel = QuestionModel(
+          categoryName: element.get('categoryName'),
+          fieldName: element.get('fieldName'),
+          answer: element.get('answer'),
+          question: element.get('question'),
+          questionDateTime: element.get('questionDateTime'),
+        );
+        emit(GetQuestionsDataSuccessState());
       });
     });
   } //end getCategoriesItems()

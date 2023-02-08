@@ -16,8 +16,7 @@ class CategoryDataErrorState extends HomeState {
 
 class GetCategoryLoadingState extends HomeState {}
 
-class GetCategoryDataSuccessState extends HomeState {
-}
+class GetCategoryDataSuccessState extends HomeState {}
 
 class GetCategoryDataErrorState extends HomeState {
   final String error;
@@ -52,6 +51,10 @@ class GetFieldDataErrorState extends HomeState {
 
   GetFieldDataErrorState(this.error);
 }
+
+class GetQuestionsLoadingState extends HomeState {}
+
+class GetQuestionsDataSuccessState extends HomeState {}
 
 class LogoutSuccessState extends HomeState {}
 

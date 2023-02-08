@@ -39,37 +39,52 @@ class QuestionsScreen extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    '${fieldModel.fieldName}',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w600,
-                      color: mainColor,
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(
+                      '${fieldModel.fieldName}',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w600,
+                        color: mainColor,
+                      ),
                     ),
                   ),
                   const SizedBox(
                     height: 7.0,
                   ),
-                  Text(
-                    '${fieldModel.fieldDescription}',
-                    style: const TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey,
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(
+                      '${fieldModel.fieldDescription}',
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
                   const SizedBox(
-                    height: 26.0,
+                    height: 14.0,
+                  ),
+                  Container(
+                    height: 1,
+                    width: 300.0,
+                    color: Colors.grey.shade100,
+                  ),
+                  const SizedBox(
+                    height: 14.0,
                   ),
                   ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemBuilder: (context, index) => buildQuestionsList(),
+                    itemBuilder: (context, index) =>
+                        buildQuestionsList(context, index),
                     separatorBuilder: (context, index) => const SizedBox(
                       height: 16.0,
                     ),
-                    itemCount: 20,
+                    itemCount: HomeCubit.getContext(context).questions.length,
                   ),
                 ],
               ),
@@ -80,15 +95,16 @@ class QuestionsScreen extends StatelessWidget {
     );
   }
 
-  Widget buildQuestionsList() => Material(
+  Widget buildQuestionsList(context, index) => Material(
         elevation: 5.0,
         borderRadius: BorderRadiusDirectional.circular(12.0),
         child: Container(
           width: double.infinity,
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 7.0),
+                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 7.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,31 +119,26 @@ class QuestionsScreen extends StatelessWidget {
                     SizedBox(
                       width: 210.0,
                       child: SelectableText(
-                        'Do you know me ?',
+                        '${HomeCubit.getContext(context).questions[index].question}',
                         style: TextStyle(
                           color: mainColor,
                           fontWeight: FontWeight.w600,
-                          fontSize: 16.0,
+                          height: 1.6,
+                          fontSize: 15.0,
                         ),
                       ),
                     ),
-                    const Spacer(),
-                    IconButton(
-                      padding: EdgeInsetsDirectional.zero,
-                      onPressed: () {},
-                      icon: const Icon(
-                        IconBroken.Heart,
-                        color: Colors.grey,
-                      ),
-                    )
                   ],
                 ),
+                const SizedBox(
+                  height: 10.0,
+                ),
                 SelectableText(
-                  'Yeah you are karim slama the developer of this app',
+                  '${HomeCubit.getContext(context).questions[index].answer}',
                   style: TextStyle(
                     color: mainColor.withOpacity(.7),
                     height: 1.6,
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                   ),
                 ),
                 const SizedBox(

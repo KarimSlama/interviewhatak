@@ -61,6 +61,7 @@ class FieldDetailsScreen extends StatelessWidget {
                                 print('Gesture Detector');
                               },
                               child: buildFieldsItems(
+                                  categoryModel,
                                   HomeCubit.getContext(context).fields[index],
                                   context,
                                   index),
@@ -88,8 +89,13 @@ class FieldDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget buildFieldsItems(FieldModel fieldModel, context, index) => InkWell(
+  Widget buildFieldsItems(
+          CategoryModel categoryModel, FieldModel fieldModel, context, index) =>
+      InkWell(
         onTap: () {
+          HomeCubit.getContext(context).getQuestionsItems(
+              categoryName: categoryModel.categoryName!,
+              fieldName: fieldModel.fieldName!);
           navigateTo(context, QuestionsScreen(fieldModel: fieldModel));
         },
         child: Padding(
