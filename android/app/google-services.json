@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "114278007068",
+    "project_id": "interviewhatak",
+    "storage_bucket": "interviewhatak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114278007068:android:b8c46e216d8299626cbad9",
+        "android_client_info": {
+          "package_name": "com.example.interview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114278007068-q3caafvcf0e6uu5og0vhvrnrl975075i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.interview",
+            "certificate_hash": "64f3dd32532eed14dfaf2fc45c80070145d9b4aa"
+          }
+        },
+        {
+          "client_id": "114278007068-4b1a4pc9k9lbovodp9agj2t6kldhhlic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-mzt1PViBPDvm06OHZGw74XNf7a9EQsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114278007068-4b1a4pc9k9lbovodp9agj2t6kldhhlic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
