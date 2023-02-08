@@ -167,7 +167,6 @@ class HomeCubit extends Cubit<HomeState> {
         .putFile(categoryImage!)
         .then((value) {
       value.ref.getDownloadURL().then((value) {
-        print(value);
         createCategoriesItems(
           categoryName: categoryName,
           categoryImage: value,

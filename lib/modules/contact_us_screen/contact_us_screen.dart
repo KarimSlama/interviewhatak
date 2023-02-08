@@ -85,7 +85,7 @@ class ContactUsScreen extends StatelessWidget {
                       height: 40.0,
                     ),
                     Material(
-                      elevation: 10.0,
+                      elevation: 5.0,
                       shadowColor: Colors.grey[200],
                       borderRadius: BorderRadiusDirectional.circular(20.0),
                       color: Colors.white,
@@ -111,7 +111,7 @@ class ContactUsScreen extends StatelessWidget {
                       height: 20.0,
                     ),
                     Material(
-                      elevation: 10.0,
+                      elevation: 5.0,
                       shadowColor: Colors.grey[200],
                       borderRadius: BorderRadiusDirectional.circular(20.0),
                       color: Colors.white,
@@ -137,7 +137,7 @@ class ContactUsScreen extends StatelessWidget {
                       height: 20.0,
                     ),
                     Material(
-                      elevation: 10.0,
+                      elevation: 5.0,
                       shadowColor: Colors.grey[200],
                       borderRadius: BorderRadiusDirectional.circular(20.0),
                       color: Colors.white,
