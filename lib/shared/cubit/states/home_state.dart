@@ -52,6 +52,10 @@ class GetFieldDataErrorState extends HomeState {
   GetFieldDataErrorState(this.error);
 }
 
+class GetSectionsLoadingState extends HomeState {}
+
+class GetSectionsDataSuccessState extends HomeState {}
+
 class GetQuestionsLoadingState extends HomeState {}
 
 class GetQuestionsDataSuccessState extends HomeState {}
@@ -105,3 +109,9 @@ class ContactMessageErrorState extends HomeState {
 
   ContactMessageErrorState(this.error);
 }
+
+class SearchForDataLoading extends HomeState {}
+
+class SearchForDataSuccess extends HomeState {}
+
+class SearchForDataError extends HomeState {}

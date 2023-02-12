@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:interview/layouts/home_layout.dart';
 import 'package:interview/modules/login_screen/login_screen.dart';
+import 'package:interview/modules/on_boarding/on_boarding.dart';
 import 'package:interview/shared/components/components.dart';
 import 'package:interview/shared/components/constants.dart';
+import 'package:interview/shared/data/cache_helper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -49,13 +51,19 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   } //end build()
 
+  var isBoarding = CacheHelper.getData(key: 'onBoarding');
+
   Future navigateToHome() async {
     await Future.delayed(const Duration(seconds: 5), () {});
-    if (uId != null) {
-      widget = const HomeLayout();
+    if (isBoarding != null) {
+      if (uId != null) {
+        widget = const HomeLayout();
+      } else {
+        widget = const OnBoardingScreen();
+        print(uId);
+      }
     } else {
-      widget = const LoginScreen();
-      print(uId);
+      widget = const OnBoardingScreen();
     }
   } //end _navigateToHome()
 

@@ -1,6 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interview/modules/search_screen/search_screen.dart';
+import 'package:interview/shared/components/components.dart';
 import 'package:interview/shared/components/constants.dart';
 import 'package:interview/shared/cubit/cubit/home_cubit.dart';
 import 'package:interview/shared/cubit/states/home_state.dart';
@@ -20,20 +22,21 @@ class HomeLayout extends StatelessWidget {
             title: Text(
               HomeCubit.getContext(context)
                   .titles[HomeCubit.getContext(context).currentIndex],
-              style:  TextStyle(
-                  color: mainColor, fontWeight: FontWeight.w500),
+              style: TextStyle(color: mainColor, fontWeight: FontWeight.w500),
             ),
             actions: [
               IconButton(
-                onPressed: () {},
-                icon:  Icon(
+                onPressed: () {
+                  navigateTo(context, const SearchScreen());
+                },
+                icon: Icon(
                   IconBroken.Search,
                   color: mainColor,
                 ),
               ),
               IconButton(
                 onPressed: () {},
-                icon:  Icon(
+                icon: Icon(
                   IconBroken.Notification,
                   color: mainColor,
                 ),

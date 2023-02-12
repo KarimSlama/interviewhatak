@@ -6,7 +6,7 @@ import 'package:icon_broken/icon_broken.dart';
 import 'package:interview/layouts/home_layout.dart';
 import 'package:interview/models/category_model.dart';
 import 'package:interview/models/field_model.dart';
-import 'package:interview/modules/questions_screen/questions_screen.dart';
+import 'package:interview/modules/sections_screen/sections_screen.dart';
 import 'package:interview/shared/components/components.dart';
 import 'package:interview/shared/components/constants.dart';
 import 'package:interview/shared/cubit/cubit/home_cubit.dart';
@@ -27,6 +27,7 @@ class FieldDetailsScreen extends StatelessWidget {
           condition: HomeCubit.getContext(context).fields.isNotEmpty,
           builder: (context) {
             return Scaffold(
+              backgroundColor: Colors.white,
               appBar: AppBar(
                 leading: IconButton(
                   onPressed: () {
@@ -54,18 +55,11 @@ class FieldDetailsScreen extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: () {
-                                // showDialogFunc(context, 'motivate',
-                                //     'be aware to everything done around you');
-                                print('Gesture Detector');
-                              },
-                              child: buildFieldsItems(
-                                  categoryModel,
-                                  HomeCubit.getContext(context).fields[index],
-                                  context,
-                                  index),
-                            );
+                            return buildFieldsItems(
+                                categoryModel,
+                                HomeCubit.getContext(context).fields[index],
+                                context,
+                                index);
                           },
                           separatorBuilder: (context, index) =>
                               const SizedBox(height: 15.0),
@@ -80,10 +74,11 @@ class FieldDetailsScreen extends StatelessWidget {
             );
           },
           fallback: (context) => Center(
-              child: SpinKitSpinningLines(
-            size: 40.0,
-            color: mainColor,
-          )),
+            child: SpinKitSpinningLines(
+              size: 40.0,
+              color: mainColor,
+            ),
+          ),
         );
       },
     );
@@ -93,10 +88,17 @@ class FieldDetailsScreen extends StatelessWidget {
           CategoryModel categoryModel, FieldModel fieldModel, context, index) =>
       InkWell(
         onTap: () {
-          HomeCubit.getContext(context).getQuestionsItems(
+          // HomeCubit.getContext(context).getQuestionsItems(
+          //     categoryName: categoryModel.categoryName!,
+          //     fieldName: fieldModel.fieldName!);
+          HomeCubit.getContext(context).getSectionsItems(
               categoryName: categoryModel.categoryName!,
               fieldName: fieldModel.fieldName!);
-          navigateTo(context, QuestionsScreen(fieldModel: fieldModel));
+          navigateTo(
+              context,
+              SectionsScreen(
+                fieldModel: fieldModel,
+              ));
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),

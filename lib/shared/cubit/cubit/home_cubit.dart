@@ -8,6 +8,7 @@ import 'package:interview/models/category_model.dart';
 import 'package:interview/models/contact_model.dart';
 import 'package:interview/models/field_model.dart';
 import 'package:interview/models/question_model.dart';
+import 'package:interview/models/section_model.dart';
 import 'package:interview/models/user_model.dart';
 import 'package:interview/modules/category_screen/category_screen.dart';
 import 'package:interview/modules/favorite_screen/favorite_screen.dart';
@@ -271,12 +272,12 @@ class HomeCubit extends Cubit<HomeState> {
     });
   } //end getCategoriesItems()
 
-  QuestionModel? questionModel;
-  List<QuestionModel> questions = [];
+  SectionModel? sectionModel;
+  List<SectionModel> sections = [];
 
-  void getQuestionsItems(
+  void getSectionsItems(
       {required String categoryName, required String fieldName}) {
-    emit(GetQuestionsLoadingState());
+    emit(GetSectionsLoadingState());
 
     FirebaseFirestore.instance
         .collection('categories')
@@ -287,6 +288,41 @@ class HomeCubit extends Cubit<HomeState> {
         .snapshots()
         .listen((event) {
       print('the all value are ${event.docs.length}');
+      sections = [];
+      event.docs.forEach((element) {
+        sections.add(SectionModel.fromJson(element.data()));
+        sectionModel = SectionModel(
+          categoryName: element.get('categoryName'),
+          fieldName: element.get('fieldName'),
+          image: element.get('image'),
+          sectionDateTime: element.get('sectionDateTime'),
+          sectionName: element.get('sectionName'),
+        );
+        emit(GetSectionsDataSuccessState());
+      });
+    });
+  } //end getSectionsItems()
+
+  QuestionModel? questionModel;
+  List<QuestionModel> questions = [];
+
+  void getQuestionsItems(
+      {required String categoryName,
+      required String fieldName,
+      required String sectionName}) {
+    emit(GetQuestionsLoadingState());
+
+    FirebaseFirestore.instance
+        .collection('categories')
+        .doc(categoryName)
+        .collection('fields')
+        .doc(fieldName)
+        .collection('questions')
+        .doc(sectionName)
+        .collection('question')
+        .snapshots()
+        .listen((event) {
+      print('the all value are ${event.docs.length}');
       questions = [];
       event.docs.forEach((element) {
         questions.add(QuestionModel.fromJson(element.data()));
@@ -294,13 +330,17 @@ class HomeCubit extends Cubit<HomeState> {
           categoryName: element.get('categoryName'),
           fieldName: element.get('fieldName'),
           answer: element.get('answer'),
+          firstImage: element.get('firstImage'),
+          secondImage: element.get('secondImage'),
+          subAnswer: element.get('subAnswer'),
           question: element.get('question'),
-          questionDateTime: element.get('questionDateTime'),
+          sectionName: element.get('sectionName'),
+          isFavorite: false,
         );
         emit(GetQuestionsDataSuccessState());
       });
     });
-  } //end getCategoriesItems()
+  } //end getQuestionsItems()
 
   ContactModel? contactModel;
 
