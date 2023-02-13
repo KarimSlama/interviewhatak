@@ -55,7 +55,7 @@ class HomeLayout extends StatelessWidget {
             items: const [
               Icon(IconBroken.Home),
               Icon(IconBroken.Heart),
-              Icon(IconBroken.Category),
+              Icon(IconBroken.Bookmark),
               Icon(IconBroken.Profile),
             ],
           ),

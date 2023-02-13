@@ -10,8 +10,8 @@ import 'package:interviewhatak/models/field_model.dart';
 import 'package:interviewhatak/models/question_model.dart';
 import 'package:interviewhatak/models/section_model.dart';
 import 'package:interviewhatak/models/user_model.dart';
-import 'package:interviewhatak/modules/category_screen/category_screen.dart';
 import 'package:interviewhatak/modules/favorite_screen/favorite_screen.dart';
+import 'package:interviewhatak/modules/books_screen/books_screen.dart';
 import 'package:interviewhatak/modules/home_screen/home_screen.dart';
 import 'package:interviewhatak/modules/profile_screen/profile_screen.dart';
 import 'package:interviewhatak/shared/components/constants.dart';
@@ -28,14 +28,14 @@ class HomeCubit extends Cubit<HomeState> {
   List<Widget> screens = [
     const HomeScreen(),
     const FavoriteScreen(),
-    const CategoryScreen(),
+    const BooksScreen(),
     const ProfileScreen(),
   ];
 
   List<String> titles = [
     'Home',
     'Favorite',
-    'Category',
+    'Books',
     'Profile',
   ];
 
