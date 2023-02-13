@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:interviewhatak/models/field_model.dart';
 import 'package:interviewhatak/shared/components/constants.dart';
@@ -86,8 +87,7 @@ class QuestionsScreen extends StatelessWidget {
                       ListView.separated(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemBuilder: (context, index) =>
-                            buildQuestionsList(context, index),
+                        itemBuilder: (context, index) => buildQuestionsList(context, index),
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 16.0,
                         ),
@@ -178,31 +178,31 @@ class QuestionsScreen extends StatelessWidget {
                 ),
                 if (HomeCubit.getContext(context).questionModel!.firstImage !=
                     '')
-                Container(
-                  width: double.infinity,
-                  height: 150.0,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadiusDirectional.all(
-                      Radius.circular(10.0),
-                    ),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        '${HomeCubit.getContext(context).questions[index].firstImage}',
+                  Container(
+                    width: double.infinity,
+                    height: 150.0,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadiusDirectional.all(
+                        Radius.circular(10.0),
+                      ),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          '${HomeCubit.getContext(context).questions[index].firstImage}',
+                        ),
                       ),
                     ),
                   ),
-                ),
                 if (HomeCubit.getContext(context).questionModel!.subAnswer !=
                     '')
-                SelectableText(
-                  '${HomeCubit.getContext(context).questions[index].subAnswer}',
-                  style: TextStyle(
-                    color: mainColor.withOpacity(.7),
-                    height: 1.6,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 15.0,
+                  SelectableText(
+                    '${HomeCubit.getContext(context).questions[index].subAnswer}',
+                    style: TextStyle(
+                      color: mainColor.withOpacity(.7),
+                      height: 1.6,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 15.0,
+                    ),
                   ),
-                ),
                 if (HomeCubit.getContext(context).questionModel!.secondImage !=
                     '')
                   Container(
