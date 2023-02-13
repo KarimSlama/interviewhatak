@@ -6,12 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:interview/layouts/home_layout.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/cubit/home_cubit.dart';
-import 'package:interview/shared/cubit/states/home_state.dart';
-import 'package:interview/styles/icon_broken.dart';
+import 'package:interviewhatak/layouts/home_layout.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
+import 'package:interviewhatak/shared/cubit/states/home_state.dart';
+import 'package:interviewhatak/styles/icon_broken.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:interview/modules/login_screen/login_screen.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/data/cache_helper.dart';
+import 'package:interviewhatak/modules/login_screen/login_screen.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/data/cache_helper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -60,7 +60,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         children: [
           Container(
             width: double.infinity,
-            height: 600.0,
+            height: 570.0,
             child: PageView.builder(
               onPageChanged: (value) {
                 if (value == boarding.length - 1) {
@@ -81,7 +81,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           const SizedBox(
-            height: 10.0,
+            height: 15.0,
           ),
           SmoothPageIndicator(
             controller: pageController,

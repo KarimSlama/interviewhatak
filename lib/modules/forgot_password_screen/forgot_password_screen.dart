@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interview/modules/login_screen/login_screen.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/cubit/login_cubit.dart';
-import 'package:interview/shared/cubit/states/login_state.dart';
-import 'package:interview/styles/icon_broken.dart';
+import 'package:interviewhatak/modules/login_screen/login_screen.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/cubit/login_cubit.dart';
+import 'package:interviewhatak/shared/cubit/states/login_state.dart';
+import 'package:interviewhatak/styles/icon_broken.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);

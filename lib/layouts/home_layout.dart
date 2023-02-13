@@ -1,12 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interview/modules/search_screen/search_screen.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/cubit/home_cubit.dart';
-import 'package:interview/shared/cubit/states/home_state.dart';
-import 'package:interview/styles/icon_broken.dart';
+import 'package:interviewhatak/modules/search_screen/search_screen.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
+import 'package:interviewhatak/shared/cubit/states/home_state.dart';
+import 'package:interviewhatak/styles/icon_broken.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);

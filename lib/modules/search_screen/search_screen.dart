@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/cubit/home_cubit.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);

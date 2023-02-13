@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interview/modules/spalsh_screen/splash_screen.dart';
-import 'package:interview/shared/cubit/cubit/home_cubit.dart';
-import 'package:interview/shared/cubit/observer.dart';
-import 'package:interview/shared/data/cache_helper.dart';
-import 'package:interview/styles/theme.dart';
+import 'package:interviewhatak/modules/spalsh_screen/splash_screen.dart';
+import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
+import 'package:interviewhatak/shared/cubit/observer.dart';
+import 'package:interviewhatak/shared/data/cache_helper.dart';
+import 'package:interviewhatak/styles/theme.dart';
 
 import 'shared/components/constants.dart';
 

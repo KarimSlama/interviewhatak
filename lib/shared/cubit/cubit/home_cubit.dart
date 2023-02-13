@@ -4,18 +4,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:interview/models/category_model.dart';
-import 'package:interview/models/contact_model.dart';
-import 'package:interview/models/field_model.dart';
-import 'package:interview/models/question_model.dart';
-import 'package:interview/models/section_model.dart';
-import 'package:interview/models/user_model.dart';
-import 'package:interview/modules/category_screen/category_screen.dart';
-import 'package:interview/modules/favorite_screen/favorite_screen.dart';
-import 'package:interview/modules/home_screen/home_screen.dart';
-import 'package:interview/modules/profile_screen/profile_screen.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/states/home_state.dart';
+import 'package:interviewhatak/models/category_model.dart';
+import 'package:interviewhatak/models/contact_model.dart';
+import 'package:interviewhatak/models/field_model.dart';
+import 'package:interviewhatak/models/question_model.dart';
+import 'package:interviewhatak/models/section_model.dart';
+import 'package:interviewhatak/models/user_model.dart';
+import 'package:interviewhatak/modules/category_screen/category_screen.dart';
+import 'package:interviewhatak/modules/favorite_screen/favorite_screen.dart';
+import 'package:interviewhatak/modules/home_screen/home_screen.dart';
+import 'package:interviewhatak/modules/profile_screen/profile_screen.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/states/home_state.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class HomeCubit extends Cubit<HomeState> {
@@ -335,7 +335,7 @@ class HomeCubit extends Cubit<HomeState> {
           subAnswer: element.get('subAnswer'),
           question: element.get('question'),
           sectionName: element.get('sectionName'),
-          isFavorite: false,
+          isFavorite: element.get('isFavorite'),
         );
         emit(GetQuestionsDataSuccessState());
       });

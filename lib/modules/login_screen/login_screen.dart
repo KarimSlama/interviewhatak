@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:interview/layouts/home_layout.dart';
-import 'package:interview/modules/forgot_password_screen/forgot_password_screen.dart';
-import 'package:interview/modules/sign_up_screen/sign_up_screen.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/cubit/login_cubit.dart';
-import 'package:interview/shared/cubit/states/login_state.dart';
-import 'package:interview/shared/data/cache_helper.dart';
-import 'package:interview/styles/icon_broken.dart';
+import 'package:interviewhatak/layouts/home_layout.dart';
+import 'package:interviewhatak/modules/forgot_password_screen/forgot_password_screen.dart';
+import 'package:interviewhatak/modules/sign_up_screen/sign_up_screen.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/cubit/login_cubit.dart';
+import 'package:interviewhatak/shared/cubit/states/login_state.dart';
+import 'package:interviewhatak/shared/data/cache_helper.dart';
+import 'package:interviewhatak/styles/icon_broken.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:interview/layouts/home_layout.dart';
-import 'package:interview/modules/login_screen/login_screen.dart';
-import 'package:interview/modules/on_boarding/on_boarding.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/data/cache_helper.dart';
+import 'package:interviewhatak/layouts/home_layout.dart';
+import 'package:interviewhatak/modules/login_screen/login_screen.dart';
+import 'package:interviewhatak/modules/on_boarding/on_boarding.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/data/cache_helper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

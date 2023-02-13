@@ -2,12 +2,12 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:interview/models/category_model.dart';
-import 'package:interview/modules/field_details_screen/field_details_screen.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/cubit/home_cubit.dart';
-import 'package:interview/shared/cubit/states/home_state.dart';
+import 'package:interviewhatak/models/category_model.dart';
+import 'package:interviewhatak/modules/field_details_screen/field_details_screen.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
+import 'package:interviewhatak/shared/cubit/states/home_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

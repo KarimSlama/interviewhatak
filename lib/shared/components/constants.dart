@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:interview/modules/login_screen/login_screen.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/data/cache_helper.dart';
+import 'package:interviewhatak/modules/login_screen/login_screen.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/data/cache_helper.dart';
 
 var mainColor = const Color(0xff472723);
 var secondColor = const Color(0xffFF725E);

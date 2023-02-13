@@ -2,12 +2,11 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:interview/models/field_model.dart';
-import 'package:interview/models/section_model.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/shared/cubit/cubit/home_cubit.dart';
-import 'package:interview/shared/cubit/states/home_state.dart';
-import 'package:interview/styles/icon_broken.dart';
+import 'package:interviewhatak/models/field_model.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
+import 'package:interviewhatak/shared/cubit/states/home_state.dart';
+import 'package:interviewhatak/styles/icon_broken.dart';
 
 class QuestionsScreen extends StatelessWidget {
   final FieldModel fieldModel;
@@ -20,7 +19,7 @@ class QuestionsScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return ConditionalBuilder(
-          condition: HomeCubit.getContext(context).questions.isNotEmpty,
+          condition: HomeCubit.getContext(context).questionModel != null,
           builder: (context) {
             return Scaffold(
               appBar: AppBar(
@@ -42,8 +41,10 @@ class QuestionsScreen extends StatelessWidget {
               body: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Padding(
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 16.0,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -90,7 +91,8 @@ class QuestionsScreen extends StatelessWidget {
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 16.0,
                         ),
-                        itemCount: HomeCubit.getContext(context).questions.length,
+                        itemCount:
+                            HomeCubit.getContext(context).questions.length,
                       ),
                     ],
                   ),
@@ -156,63 +158,66 @@ class QuestionsScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 12.0,
+                  height: 7.0,
                 ),
-                Text(
-                  'Example',
-                  style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: mainColor,
-                      fontWeight: FontWeight.w700),
-                ),
+                if (HomeCubit.getContext(context).questionModel!.subAnswer !=
+                        '' ||
+                    HomeCubit.getContext(context).questionModel!.firstImage !=
+                        '' ||
+                    HomeCubit.getContext(context).questionModel!.secondImage !=
+                        '')
+                  Text(
+                    'Example',
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: mainColor,
+                        fontWeight: FontWeight.w700),
+                  ),
                 const SizedBox(
                   height: 12.0,
                 ),
+                if (HomeCubit.getContext(context).questionModel!.firstImage !=
+                    '')
                 Container(
                   width: double.infinity,
-                  height: 200.0,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.all(
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadiusDirectional.all(
                       Radius.circular(10.0),
                     ),
                     image: DecorationImage(
                       image: NetworkImage(
-                        'https://s3.ap-south-1.amazonaws.com/myinterviewtrainer-domestic/public_assets/assets/000/001/056/original/flutter_features.jpg?1631113687',
+                        '${HomeCubit.getContext(context).questions[index].firstImage}',
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 12.0,
-                ),
+                if (HomeCubit.getContext(context).questionModel!.subAnswer !=
+                    '')
                 SelectableText(
-                  '${HomeCubit.getContext(context).questionModel!.answer}',
+                  '${HomeCubit.getContext(context).questions[index].subAnswer}',
                   style: TextStyle(
                     color: mainColor.withOpacity(.7),
                     height: 1.6,
+                    fontStyle: FontStyle.italic,
                     fontSize: 15.0,
                   ),
                 ),
-                const SizedBox(
-                  height: 12.0,
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 200.0,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.all(
-                      Radius.circular(10.0),
-                    ),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://s3.ap-south-1.amazonaws.com/myinterviewtrainer-domestic/public_assets/assets/000/001/056/original/flutter_features.jpg?1631113687',
+                if (HomeCubit.getContext(context).questionModel!.secondImage !=
+                    '')
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadiusDirectional.all(
+                        Radius.circular(10.0),
+                      ),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          '${HomeCubit.getContext(context).questions[index].secondImage}',
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 7.0,
-                ),
               ],
             ),
           ),

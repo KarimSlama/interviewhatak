@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:interview/layouts/home_layout.dart';
-import 'package:interview/shared/components/components.dart';
-import 'package:interview/shared/components/constants.dart';
-import 'package:interview/styles/icon_broken.dart';
+import 'package:interviewhatak/layouts/home_layout.dart';
+import 'package:interviewhatak/shared/components/components.dart';
+import 'package:interviewhatak/shared/components/constants.dart';
+import 'package:interviewhatak/styles/icon_broken.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({Key? key}) : super(key: key);
