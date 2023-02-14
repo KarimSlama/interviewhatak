@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:interviewhatak/models/field_model.dart';
+import 'package:interviewhatak/models/section_model.dart';
 import 'package:interviewhatak/shared/components/constants.dart';
 import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
 import 'package:interviewhatak/shared/cubit/states/home_state.dart';
 import 'package:interviewhatak/styles/icon_broken.dart';
 
 class QuestionsScreen extends StatelessWidget {
-  final FieldModel fieldModel;
+  final SectionModel sectionModel;
 
-  const QuestionsScreen({Key? key, required this.fieldModel}) : super(key: key);
+  const QuestionsScreen({Key? key, required this.sectionModel})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class QuestionsScreen extends StatelessWidget {
                 ),
                 titleSpacing: 0.0,
                 title: Text(
-                  'Overview',
+                  '${sectionModel.sectionName}',
                   style: TextStyle(color: mainColor),
                 ),
               ),
@@ -48,45 +50,11 @@ class QuestionsScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional.centerStart,
-                        child: Text(
-                          '${fieldModel.fieldName}',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w600,
-                            color: mainColor,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 7.0,
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional.centerStart,
-                        child: Text(
-                          '${fieldModel.fieldDescription}',
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 14.0,
-                      ),
-                      Container(
-                        height: 1,
-                        width: 300.0,
-                        color: Colors.grey.shade100,
-                      ),
-                      const SizedBox(
-                        height: 14.0,
-                      ),
                       ListView.separated(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemBuilder: (context, index) => buildQuestionsList(context, index),
+                        itemBuilder: (context, index) =>
+                            buildQuestionsList(context, index),
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 16.0,
                         ),
@@ -159,11 +127,13 @@ class QuestionsScreen extends StatelessWidget {
                 const SizedBox(
                   height: 7.0,
                 ),
-                if (HomeCubit.getContext(context).questionModel!.subAnswer !=
+                if (HomeCubit.getContext(context).questions[index].subAnswer !=
                         '' ||
-                    HomeCubit.getContext(context).questionModel!.firstImage !=
+                    HomeCubit.getContext(context).questions[index].firstImage !=
                         '' ||
-                    HomeCubit.getContext(context).questionModel!.secondImage !=
+                    HomeCubit.getContext(context)
+                            .questions[index]
+                            .secondImage !=
                         '')
                   Text(
                     'Example',
@@ -173,9 +143,9 @@ class QuestionsScreen extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ),
                 const SizedBox(
-                  height: 12.0,
+                  height: 7.0,
                 ),
-                if (HomeCubit.getContext(context).questionModel!.firstImage !=
+                if (HomeCubit.getContext(context).questions[index].firstImage !=
                     '')
                   Container(
                     width: double.infinity,
@@ -191,7 +161,7 @@ class QuestionsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                if (HomeCubit.getContext(context).questionModel!.subAnswer !=
+                if (HomeCubit.getContext(context).questions[index].subAnswer !=
                     '')
                   SelectableText(
                     '${HomeCubit.getContext(context).questions[index].subAnswer}',

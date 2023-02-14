@@ -29,8 +29,6 @@ class SectionsScreen extends StatelessWidget {
                 title: Text(
                   fieldModel.fieldName!,
                   style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
                     color: mainColor,
                   ),
                 ),
@@ -53,6 +51,8 @@ class SectionsScreen extends StatelessWidget {
                   children: [
                     Text(
                       '${fieldModel.fieldDescription}',
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontSize: 16.0,
                         color: Colors.grey,
@@ -103,7 +103,7 @@ class SectionsScreen extends StatelessWidget {
             fieldName: fieldModel.fieldName!,
             sectionName: sectionModel.sectionName!,
           );
-          navigateTo(context, QuestionsScreen(fieldModel: fieldModel));
+          navigateTo(context, QuestionsScreen(sectionModel: sectionModel));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
