@@ -161,6 +161,9 @@ class QuestionsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                const SizedBox(
+                  height: 10.0,
+                ),
                 if (HomeCubit.getContext(context).questions[index].subAnswer !=
                     '')
                   SelectableText(
