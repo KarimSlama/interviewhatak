@@ -2,7 +2,6 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:interviewhatak/models/field_model.dart';
 import 'package:interviewhatak/models/section_model.dart';
 import 'package:interviewhatak/shared/components/constants.dart';
 import 'package:interviewhatak/shared/cubit/cubit/home_cubit.dart';
